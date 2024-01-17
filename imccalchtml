@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de IMC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #imc-calculator {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      width: 300px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="imc-calculator">
+    <h2>Calculadora de IMC</h2>
+    <label for="weight">Peso (kg):</label>
+    <input type="number" id="weight" placeholder="Insira seu peso" required>
+    <label for="height">Altura (m):</label>
+    <input type="number" id="height" placeholder="Insira sua altura" required>
+    <button onclick="calculateIMC()">Calcular</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateIMC() {
+      var weight = document.getElementById('weight').value;
+      var height = document.getElementById('height').value;
+
+      if (weight > 0 && height > 0) {
+        var imc = weight / (height * height);
+        var resultElement = document.getElementById('result');
+        resultElement.innerHTML = 'Seu IMC é: ' + imc.toFixed(2);
+      } else {
+        alert('Por favor, insira valores válidos para peso e altura.');
+      }
+    }
+  </script>
+</body>
+
+</html>
